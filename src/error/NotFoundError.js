@@ -1,13 +1,13 @@
 const { errors } = require('../../config.json')
 const HttpError = require('./HttpError')
 
-module.exports = class InvalidParamError extends HttpError {
-  constructor(param) {
+module.exports = class NotFoundError extends HttpError {
+  constructor(resourse) {
     const msg =
-      typeof param === 'string' && param
-        ? `${errors.notFound.msg}: ${param}`
+      typeof resourse === 'string' && resourse
+        ? `${errors.notFound.msg}: ${resourse}`
         : errors.notFound
-    const statusCode = errors.notFound.statusCode
-    super(msg, statusCode)
+    const status = errors.notFound.status
+    super(msg, status)
   }
 }

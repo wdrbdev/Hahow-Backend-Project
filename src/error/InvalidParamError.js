@@ -7,7 +7,7 @@ module.exports = class InvalidParamError extends HttpError {
       typeof param === 'string' && param
         ? `${errors.invalidParam.msg}: ${param}`
         : errors.invalidParam
-    const statusCode = errors.invalidParam.statusCode
-    super(msg, statusCode)
+    const status = errors.invalidParam.status
+    super(msg, status)
   }
 }
