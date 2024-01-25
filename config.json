@@ -1,0 +1,23 @@
+{
+  "urls": {
+    "heroPrefix": "https://hahow-recruit.herokuapp.com/heroes",
+    "auth": "https://hahow-recruit.herokuapp.com/auth"
+  },
+  "errors": {
+    "httpError": {
+      "msg": "Unknown server error",
+      "statusCode": 500
+    },
+    "invalidParam": {
+      "msg": "Invalid parameter(s)",
+      "statusCode": 400
+    },
+    "invalidAuth": {
+      "msg": "Invalid credentials",
+      "statusCode": 401
+    }, "notFound": {
+      "msg": "Resourse not found",
+      "statusCode": 404
+    }
+  }
+}
