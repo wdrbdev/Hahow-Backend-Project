@@ -1,14 +1,8 @@
 const InvalidParamError = require('../error/InvalidParamError')
 
+const numRegex = /^\d+$/
 module.exports = function validateId(idStr) {
-  if (!idStr || typeof idStr !== 'string' || !_isIntegerStr(idStr)) {
+  if (!idStr || typeof idStr !== 'string' || !numRegex.test(idStr)) {
     throw new InvalidParamError(`id: '${idStr}'`)
   }
-}
-
-function _isIntegerStr(str) {
-  if (typeof str !== 'string') {
-    return false
-  }
-  return parseInt(str) !== NaN && parseInt(str) === parseFloat(str)
 }
