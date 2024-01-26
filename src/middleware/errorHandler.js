@@ -2,7 +2,6 @@ const { AxiosError } = require('axios')
 const HttpError = require('../error/HttpError')
 
 module.exports = function errorHandler(err, req, res, next) {
-  console.error(err)
   if (err instanceof HttpError) {
     res.status(err.status).json({
       error: err.msg
