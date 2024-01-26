@@ -22,7 +22,6 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" -X GET ht
 
 ```
 curl -H "Accept: application/json" -H "Content-Type: application/json" -H "Name: hahow" -H "Password: rocks" -X GET http://localhost:3000/heros/1
-
 ```
 
 - Query for heros array without login
@@ -66,7 +65,7 @@ Express is applied as backend Node.js framework.
 - README.md: documentation
 
 ## Third-party Dependency
-- Express: The backend HTTP framework
+- express: The backend HTTP framework
 - axios: To send HTTP request to third-party APIs
 - axios-mock-adapter: Create mock for axios so requests to third-party API is not required during testing.
 - jest: The testing framework
