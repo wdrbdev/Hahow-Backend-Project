@@ -22,11 +22,7 @@ herosRouter.get('/', async function(req, res, next) {
 
   // get heros with profile when logged-in
   try {
-    authenticate(req.get('Name'), req.get('Password'))
-  } catch (e) {
-    return next(new InvalidAuthError())
-  }
-  try {
+    authenticate(req.headers['name'], req.headers['password'])
     for (let i = 0; i < heros.length; ++i) {
       const profile = await getHeroProfileById(heros[i].id)
       Object.assign(heros[i], { profile })
@@ -52,12 +48,7 @@ herosRouter.get('/:id', async function(req, res, next) {
 
   // get hero with profile when logged-in
   try {
-    authenticate(req.get('Name'), req.get('Password'))
-  } catch (e) {
-    return next(new InvalidAuthError())
-  }
-
-  try {
+    authenticate(req.headers['name'], req.headers['password'])
     const profile = await getHeroProfileById(req.params.id)
     Object.assign(hero, { profile })
     res.json(hero)

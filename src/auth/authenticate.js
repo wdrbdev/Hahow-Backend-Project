@@ -1,6 +1,8 @@
 const axios = require('axios')
 
 const { urls } = require('../../config.json')
+const InvalidAuthError = require('../error/InvalidAuthError')
+
 /*
  * authenticate by third-party API
  * @param [string] name - Account
@@ -8,8 +10,13 @@ const { urls } = require('../../config.json')
  * @throws Will throw when authentication fails
  */
 module.exports = function authenticate(name, password) {
-  axios.post(urls.auth, {
-    name,
-    password
-  })
+  try {
+    axios.post(urls.auth, {
+      name,
+      password
+    })
+  } catch (e) {
+    console.log(e)
+    throw new InvalidAuthError()
+  }
 }
