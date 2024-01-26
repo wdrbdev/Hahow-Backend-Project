@@ -11,10 +11,8 @@ const herosRouter = express.Router()
 
 herosRouter.get('/', authenticator, async function(req, res, next) {
   try {
-    const { data } = await getHeros()
-    res.json({
-      heros: data
-    })
+    const heros = await getHeros()
+    res.json({ heros })
   } catch (e) {
     next(e)
   }
@@ -23,7 +21,7 @@ herosRouter.get('/', authenticator, async function(req, res, next) {
 herosRouter.get('/:id', async function(req, res, next) {
   const hero = {}
   try {
-    const { data } = await getHeroById(req.params.id)
+    const data = await getHeroById(req.params.id)
     Object.assign(hero, data)
     if (!req.get('Name')) {
       return res.json(hero)
@@ -39,7 +37,7 @@ herosRouter.get('/:id', async function(req, res, next) {
   }
 
   try {
-    const { data: profile } = await getHeroProfileById(req.params.id)
+    const profile = await getHeroProfileById(req.params.id)
     Object.assign(hero, { profile })
     res.json(hero)
   } catch (e) {
