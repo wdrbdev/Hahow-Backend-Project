@@ -1,6 +1,5 @@
 const express = require('express')
 
-const authenticator = require('../middleware/authenticator')
 const getHeroById = require('../model/hero/getHeroById')
 const getHeroProfileById = require('../model/hero/getHeroProfileById')
 const getHeros = require('../model/hero/getHeros')
@@ -9,9 +8,28 @@ const InvalidAuthError = require('../error/InvalidAuthError')
 
 const herosRouter = express.Router()
 
-herosRouter.get('/', authenticator, async function(req, res, next) {
+herosRouter.get('/', async function(req, res, next) {
+  let heros = []
   try {
-    const heros = await getHeros()
+    heros = await getHeros()
+    if (!req.get('Name')) {
+      return res.json({ heros })
+    }
+  } catch (e) {
+    return next(e)
+  }
+
+  try {
+    authenticate(req.get('Name'), req.get('Password'))
+  } catch (e) {
+    return next(new InvalidAuthError())
+  }
+
+  try {
+    for (let i = 0; i < heros.length; ++i) {
+      const profile = await getHeroProfileById(heros[i].id)
+      Object.assign(heros[i], { profile })
+    }
     res.json({ heros })
   } catch (e) {
     next(e)
