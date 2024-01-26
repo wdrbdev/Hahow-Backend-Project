@@ -60,7 +60,7 @@ Express is applied as backend Node.js framework.
   - util: common utility functions 
   - app.js: Express application
   - index.js: HTTP server logics
-- test: testing logics, each folder under `test` corresponding to each folder of `src` 
+- test: testing logics, each folder under `test` corresponds to each folder of `src` 
 - config.json: configuration file
 - README.md: documentation
 
