@@ -5,6 +5,10 @@ const validateId = require('../../util/validateId')
 const validateHero = require('../../util/validateHero')
 const HttpError = require('../../error/HttpError')
 
+/*
+ * Get hero object according to given id by third-party API
+ * @param [string] id - hero ID
+ */
 module.exports = async function getHeroById(id) {
   validateId(id)
 
