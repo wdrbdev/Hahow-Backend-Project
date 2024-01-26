@@ -5,7 +5,7 @@
 
 ## Quick Start
 ### Server
-- Start server on localhost at port 3000
+- Start server on localhost at port 3000 by Node.js version 20
 
 ```
 npm start
