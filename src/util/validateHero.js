@@ -6,7 +6,7 @@ const InvalidParamError = require('../error/InvalidParamError')
  * @param [Object] hero
  */
 module.exports = function validateHero(hero) {
-  if(!hero || typeof hero.id !== 'string') {
+  if (!hero || typeof hero.id !== 'string') {
     throw new InvalidParamError(`hero '${JSON.stringify(hero)}'`)
   }
 }

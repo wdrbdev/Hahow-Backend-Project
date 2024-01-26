@@ -12,5 +12,5 @@ module.exports = async function getHeroProfileById(id) {
 
   const url = `${urls.heroPrefix}/${id}/profile`
   const { data: profile } = await axios.get(url)
-  return profile 
+  return profile
 }

@@ -7,7 +7,7 @@ const HttpError = require('./HttpError')
 module.exports = class NotFoundError extends HttpError {
   /*
    * @constructor
-   * @param [string] param - the resource which cannot be found 
+   * @param [string] param - the resource which cannot be found
    */
   constructor(resourse) {
     const msg =

@@ -80,7 +80,6 @@ describe('/heros/:id', () => {
 
   test('after login, hero profile is present', async () => {
     for (const validId of validIds) {
-
       const res = await request(app)
         .get(`/heros/${validId}`)
         .set('Name', 'hahow')
@@ -103,22 +102,13 @@ describe('/heros', () => {
       const id = config.url.replace(numRegex, '')
       const heros = [
         { id: '1', name: 'hero 1 name', image: 'hero 1 image link' },
-        {
-          id: '2',
-          name: 'hero 2 name',
-          image: 'hero 2 image link'
-        }
+        { id: '2', name: 'hero 2 name', image: 'hero 2 image link' }
       ]
       if (
         config.headers['name'] === 'hahow' &&
         config.headers['password'] === 'rocks'
       ) {
-        const profile = {
-          str: 1,
-          int: 1,
-          agi: 1,
-          luk: 1
-        }
+        const profile = { str: 1, int: 1, agi: 1, luk: 1 }
         for (let i = 0; i < heros.length; ++i) {
           heros[i] = {
             ...heros[i],

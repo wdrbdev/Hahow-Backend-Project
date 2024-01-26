@@ -2,7 +2,7 @@ const { errors } = require('../../config.json')
 const HttpError = require('./HttpError')
 
 /*
- * Error for invalid input/outout 
+ * Error for invalid input/outout
  */
 module.exports = class InvalidParamError extends HttpError {
   /*
