@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./src/index.js",
-    "test": "jest --runInBand --silent=false"
+    "test": "jest --runInBand"
   },
   "repository": {
     "type": "git",
